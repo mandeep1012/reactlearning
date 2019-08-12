@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-/* USING JS  IN JSX */
+/* USING JS  IN JSX 
 
 function Person() {
   const btn = "search button";
