@@ -1,6 +1,47 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+//PROPS(PROPERTIES) => ARGUMENTS TO COMPONENTS
+//function sayName(name){
+//console.log(name);
+//}
+//sayName('john');
+
+function People() {
+  const friends = [
+    { name: "John", job: "developer", age: "23", company: "apple" },
+    { name: "Bob", job: "designer", age: "25", company: "facebook" },
+    { name: "Susy", job: "artist", age: "27", company: "micro" }
+  ];
+
+  return (
+    <section>
+      <Person person={friends[0]}>
+        <p>Some Info</p>
+      </Person>
+      <Person person={friends[1]} />
+      <Person person={friends[2]} />
+    </section>
+  );
+}
+
+const Person = props => {
+  console.log(props);
+  const { name, job, age, company } = props.person;
+  const { children } = props;
+  return (
+    <div>
+      <h1>{name}</h1>
+      {children}
+      <p>{job}</p>
+      <p>{age}</p>
+      <p>{company}</p>
+
+      <hr />
+    </div>
+  );
+};
+
 /* USING JS  IN JSX 
 
 function Person() {
@@ -40,11 +81,6 @@ const Title = () => <h1>The Subtle Art of Not Giving a Fuck </h1>;
 
 const Author = () => <p style=={{backgroundColor:"black"}}>Mark Manson</p>; */
 
-
-
-
-
-
 /*
 ////      Three arguments elements , propsObject , children 
 ////      React.createElement creates element with the content
@@ -52,8 +88,6 @@ const Author = () => <p style=={{backgroundColor:"black"}}>Mark Manson</p>; */
 function Greeting(){
     return React.createElement('div',{},'hello world')
 } */
-
-
 
 /*
  ////       THIS IS AN STATELESS FUNCTIONAL COMPONENT 
@@ -65,4 +99,4 @@ function Greeting() {
 }
 */
 
-ReactDOM.render(<Person />, document.getElementById("root"));
+ReactDOM.render(<People />, document.getElementById("root"));
